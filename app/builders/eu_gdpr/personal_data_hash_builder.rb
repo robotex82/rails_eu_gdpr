@@ -11,7 +11,7 @@ module EuGdpr
 
     def attribute(name, options = {})
       if with_options?
-        hash[:attributes][name] = { options: options }
+        hash[:attributes][name] = { :options => options }
       else
         hash[:attributes] << name
       end
@@ -19,17 +19,17 @@ module EuGdpr
 
     def association(name, options = {}, &block)
       if with_options?
-        hash[:associations][name] = { options: options, attributes: EuGdpr::PersonalDataHashBuilder.new(block: block).hash }
+        hash[:associations][name] = { :options => options, :attributes => EuGdpr::PersonalDataHashBuilder.new(:block => block).hash }
       else
-        hash[name] = EuGdpr::PersonalDataHashBuilder.new({block: block}, @builder_options).hash
+        hash[name] = EuGdpr::PersonalDataHashBuilder.new({ :block => block}, @builder_options).hash
       end
     end
 
     def hash
       if with_options?
-        @hash ||= { root: root, options: options, attributes: {}, associations: {} }
+        @hash ||= { :root => root, :options => options, :attributes => {}, :associations => {} }
       else
-        @hash ||= { attributes: [] }
+        @hash ||= { :attributes => [] }
       end
     end
 
