@@ -9,7 +9,7 @@ module EuGdpr
     end
 
     def build_hash_with_options!
-      EuGdpr::PersonalDataHashBuilder.new({ root: root, options: options, block: block }, { with_options: true }).hash
+      EuGdpr::PersonalDataHashBuilder.new({ :root => root, :options => options, :block => block }, { :with_options => true }).hash
     end
 
     def to_hash
@@ -17,7 +17,7 @@ module EuGdpr
     end
 
     def build_hash!
-      EuGdpr::PersonalDataHashBuilder.new({ root: root, options: options, block: block }, { with_options: false }).hash
+      EuGdpr::PersonalDataHashBuilder.new({ :root => root, :options => options, :block => block }, { :with_options => false }).hash
     end
 
     def self.all
