@@ -6,7 +6,7 @@ module Model
       # Backport class_methods method.
       if Rails.version < '4.2'
         def self.class_methods(&class_methods_module_definition)
-          mod = const_defined?(:ClassMethods, false) ?
+          mod = const_defined?(:ClassMethods) ?
             const_get(:ClassMethods) :
             const_set(:ClassMethods, Module.new)
 
