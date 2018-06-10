@@ -3,6 +3,17 @@ module Model
     module PersonalDataConcern
       extend ActiveSupport::Concern
 
+      # Backport class_methods method.
+      if Rails.version < '4.2'
+        def self.class_methods(&class_methods_module_definition)
+          mod = const_defined?(:ClassMethods, false) ?
+            const_get(:ClassMethods) :
+            const_set(:ClassMethods, Module.new)
+
+          mod.module_eval(&class_methods_module_definition)
+        end
+      end
+
       class_methods do
         def personal_data_attributes=(attribute_names)
           @personal_data_attributes = attribute_names
