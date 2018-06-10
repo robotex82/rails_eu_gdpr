@@ -1,0 +1,7 @@
+de:
+  # i18n_routing
+  resource:
+    privacy_policy: datenschutzerklaerung
+  # route_translator
+  routes:
+    privacy_policy: datenschutzerklaerung

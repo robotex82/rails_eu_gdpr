@@ -1,0 +1,1 @@
+//= require ./eu_gdpr/application

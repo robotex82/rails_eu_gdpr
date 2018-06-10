@@ -1,0 +1,8 @@
+= resource_table(resource: @resource) do |table|
+  = table.row :id
+  = table.row :personal_data_attributes
+  = table.row :instance_getter
+  = table.row :instance do |resource|
+    - resource.instance(controller)
+  = table.row :data do |resource|
+    - resource.data(controller)

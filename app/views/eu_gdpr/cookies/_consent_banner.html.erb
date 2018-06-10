@@ -1,0 +1,40 @@
+<div id="cookies-eu-modal" class="modal fade cookies-eu js-cookies-eu" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Information über Cookies auf dieser Website.</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 span6">
+            <p>Cookies helfen uns bei der Bereitstellung unserer Dienste. Durch die Nutzung unserer Dienste erklären Sie sich damit einverstanden, dass wir Cookies setzen.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 span6">
+            <h5>Erforderliche Cookies</h5>
+            <p>Diese Cookies sind für die Kernfunktionen der Website erforderlich und werden automatisch aktiviert, wenn Sie diese Website nutzen.</p>
+            <p>
+              <% if defined?(link).present? %>
+                <a href="<%= link %>" class="btn btn-secondary btn-default cookies-eu-link" target="<%= defined?(target).present? ? target : '' %>">Mehr erfahren</a>
+              <% end %>
+            </p>
+          </div>
+          <div class="col-lg-6 span12">
+            <h5>Gestattete Funktionalität</h5>
+            <p>Speichern die Anmeldeinformationen und sorgen für sichere Anmeldung</p>
+            <p>Speichern Ihren Aufgaben- oder Transaktionsfortschritt</p>
+          </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary cookies-eu-ok js-cookies-eu-ok" data-dismiss="modal">Ich stimme zu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if cookies && cookies['cookie_eu_consented'] != 'true' %>
+  <script>
+    $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
+  </script>
+<% end %>

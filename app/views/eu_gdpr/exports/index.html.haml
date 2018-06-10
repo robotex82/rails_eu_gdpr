@@ -1,0 +1,6 @@
+= collection_table(collection: @collection) do |table|
+  = table.column :klass
+  = table.column :personal_data_attributes
+  = table.column :actions do |resource|
+    - link_to({ action: :show, id: resource.id }, class: 'btn btn-primary') do
+      - t('.show')
