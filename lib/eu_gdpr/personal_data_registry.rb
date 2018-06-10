@@ -5,7 +5,7 @@ module EuGdpr
 
     attr_accessor :personal_data
 
-    delegate :first, :last, :[], :each, :map, :collect, to: :personal_data
+    delegate :first, :last, :[], :each, :map, :collect, :to => :personal_data
 
     def initialize
       @personal_data = []
@@ -28,7 +28,7 @@ module EuGdpr
     end
 
     def register(root, options, &block)
-      self.personal_data << PersonalData.new(root: root, options: options, block: block)
+      self.personal_data << PersonalData.new(:root => root, :options => options, :block => block)
     end
 
     @@instance = EuGdpr::PersonalDataRegistry.new
