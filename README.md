@@ -2,38 +2,6 @@
 Short description and motivation.
 
 ## Usage
-How to use my plugin.
-
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'eu_gdpr'
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install eu_gdpr
-```
-
-Add the initializer:
-
-```bash
-$ rails g eu_gdpr:install
-```
-
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Usage
 
 ## Displaying the eu cookie banner
 
@@ -88,6 +56,39 @@ The gem is available as open source under the terms of the [MIT License](https:/
 * Checks for SSL in production
 * Adds sensible attribute log filtering (customizable)
 * EU Cookie Message
+
+## Installation
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'eu_gdpr'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+Or install it yourself as:
+```bash
+$ gem install eu_gdpr
+```
+
+Add the initializer:
+
+```bash
+$ rails g eu_gdpr:install
+```
+
+## Upgrading to 0.0.3
+
+Remove config.privacy_policy_defaults from config/initializers/eu_gdpr.rb as this options is not needed anymore.
+
+## Contributing
+Contribution directions go here.
+
+## License
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## TODO
 
