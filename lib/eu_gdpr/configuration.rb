@@ -9,18 +9,6 @@ module EuGdpr
     mattr_accessor(:filter_personal_data_attributes) { [] }
     mattr_accessor(:enforce_ssl) { true }
     mattr_accessor(:enable_cookie_consent_banner) { true }
-    mattr_accessor(:privacy_policy_defaults) do
-      {
-        :de => { :title => 'Datenschutzerklärung'},
-        :en => { :title => 'Privacy Policy'}
-      }
-    end
-
-    # def self.personal_data_map
-    #   personal_data_root_classes.call.each_with_object({}) do |(root_klass, options), memo|
-    #     memo[root_klass] = options[:personal_data_attributes]
-    #   end
-    # end
 
     def personal_data
       @personal_data ||= ::EuGdpr::PersonalDataRegistry.instance

@@ -11,5 +11,5 @@ Rails.application.config.after_initialize do
     puts "[EU GDPR] Warning: Cookie consent banner enabled? => [FALSE]"
   end
 
-  puts "[EU GDPR] Filtered personal data attributes => #{EuGdpr::Configuration.filter_personal_data_attributes.join(", ")}"
+  puts "[EU GDPR] Filtered personal data attributes => #{(EuGdpr::Configuration.filter_personal_data_attributes || []).join(", ")}"
 end

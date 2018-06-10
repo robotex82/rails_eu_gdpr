@@ -25,16 +25,6 @@ Rails.application.config.to_prepare do
     #
     config.enable_cookie_consent_banner = true
 
-    # default:   config.privacy_policy_defaults = {
-    #              :de => { :title => 'Datenschutzerklärung'},
-    #              :en => { :title => 'Privacy Policy'}
-    #            }
-    #
-    config.privacy_policy_defaults = {
-      :de => { :title => 'Datenschutzerklärung'},
-      :en => { :title => 'Privacy Policy'}
-    }
-
     # config.personal_data.register('User', log_removals: true, forget_with: :anonymization) do |u|
     #   u.attribute(:email, anonymize_with: :scrambler)
     #   u.attribute(:firstname, anonymize_with: :scrambler)
