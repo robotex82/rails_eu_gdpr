@@ -13,3 +13,8 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+if ENV.fetch('RAILS_VERSION') { nil } == "3.2"
+  gem 'rails', '>= 3.2'
+  gem 'capybara', '< 3.0'
+  gem 'i18n_routing'
+end

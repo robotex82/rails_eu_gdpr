@@ -6,7 +6,14 @@ de:
   routes:
     privacy_policy: datenschutzerklaerung
   eu_gdpr:
+    cookie_preferences:
+      update:
+        success: 'Ihre Einstellungen wurden gespeichert.'
     cookies:
       consent_banner:
-        submit_button_text: "Ich stimme zu"
-        title: "Information über Cookies auf dieser Website."
+        title: "Wir verwenden Cookies"
+  helpers:
+    submit:
+      cookie_preferences:
+        create: "Ich stimme zu"
+        update: "Ich stimme zu"

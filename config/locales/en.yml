@@ -6,7 +6,14 @@ en:
   routes:
     privacy_policy: privacy-policy
   eu_gdpr:
+    cookie_preferences:
+      update:
+        success: 'Settings successfully saved.'
     cookies:
       consent_banner:
-        submit_button_text: I consent
-        title: Cookie Information
+        title: "We use cookies"
+  helpers:
+    submit:
+      cookie_preferences:
+        create: "I consent"
+        update: "I consent"

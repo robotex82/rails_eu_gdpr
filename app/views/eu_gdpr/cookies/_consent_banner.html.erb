@@ -1,5 +1,5 @@
 <div id="cookies-eu-modal" class="modal fade cookies-eu js-cookies-eu" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+  <div class="modal-lg modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"><%= t('.title') %></h4>
@@ -14,8 +14,11 @@
   </div>
 </div>
 
-<% if cookies && cookies['cookie_eu_consented'] != 'true' %>
+<% if eu_gdpr_helper(self).cookie_preferences_pending? %>
   <script>
+    $('#cookies-eu-modal').on('show.bs.modal', function () {
+      $(this).find('.modal-body').load("<%= eu_gdpr.edit_cookie_preferences_path %>");
+    })
     $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
   </script>
 <% end %>

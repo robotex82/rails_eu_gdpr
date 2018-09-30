@@ -9,6 +9,8 @@ module EuGdpr
     mattr_accessor(:filter_personal_data_attributes) { [] }
     mattr_accessor(:enforce_ssl) { true }
     mattr_accessor(:enable_cookie_consent_banner) { true }
+    mattr_accessor(:cookies) { ->(cookie_store = ::EuGdpr::CookieStore.new({})) { [] } }
+    mattr_accessor(:cookie_prefix) { "eu_gdpr-" }
 
     def personal_data
       @personal_data ||= ::EuGdpr::PersonalDataRegistry.instance
