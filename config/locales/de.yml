@@ -5,3 +5,15 @@ de:
   # route_translator
   routes:
     privacy_policy: datenschutzerklaerung
+  eu_gdpr:
+    cookie_preferences:
+      update:
+        success: 'Ihre Einstellungen wurden gespeichert.'
+    cookies:
+      consent_banner:
+        title: "Wir verwenden Cookies"
+  helpers:
+    submit:
+      cookie_preferences:
+        create: "Ich stimme zu"
+        update: "Ich stimme zu"

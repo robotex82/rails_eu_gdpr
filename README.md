@@ -8,11 +8,33 @@ Short description and motivation.
     # app/assets/javascripts/application.js
     //= require eu_gdpr
 
+    # app/assets/javascripts/application.js
+    /*
+     *= require eu_gdpr
+     */
+
     # app/controllers/application_controller.rb
     helper EuGdpr::ApplicationHelper
 
     # app/views/layouts/application.html.erb
-    <%= render_cookie_consent_banner(link: eu_gdpr.privacy_policy_path) %>
+    <%= eu_gdpr_helper(self).render_cookie_consent_banner(link: eu_gdpr.privacy_policy_path) %>
+
+## Displaying the eu cookie banner anywhere
+
+    # i.e. app/views/some_view.html.haml
+    <%= eu_gdpr_helper(self).render_cookie_preferences %>
+
+## Configuring the eu cookie banner
+
+You can configure different levels of cookies in the initializer. The defaults are as follows:
+
+    # config/initializers/eu_gdpr.rb
+    config.cookies = ->(cookie_store = ::EuGdpr::CookieStore.new({})) {[
+      ::EuGdpr::Cookie.new(identifier: :basic,        adjustable: false, default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :analytics,    adjustable: true,  default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :marketing,    adjustable: true,  default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :social_media, adjustable: true,  default: false, cookie_store: cookie_store)
+    ]}
 
 ## Registering personal data
 
@@ -61,7 +83,7 @@ Short description and motivation.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'eu_gdpr'
+gem 'rails_eu_gdpr'
 ```
 
 And then execute:
@@ -71,13 +93,13 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install eu_gdpr
+$ gem install rails_eu_gdpr
 ```
 
 Add the initializer:
 
 ```bash
-$ rails g eu_gdpr:install
+$ rails g rails_eu_gdpr:install
 ```
 
 ## Upgrading to 0.0.3
