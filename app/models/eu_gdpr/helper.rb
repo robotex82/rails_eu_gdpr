@@ -21,12 +21,19 @@ module EuGdpr
     end
 
     def cookie_preferences
-      ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(c.cookies))
+      ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(cookie_storage))
     end
 
     def render_cookie_preferences
-      resource = ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(c.cookies))
+      resource = ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(cookie_storage))
+      c.render :partial => 'eu_gdpr/cookie_preferences/hint'
       c.render :partial => 'eu_gdpr/cookie_preferences/form', locals: { resource: resource }
+    end
+
+    private
+
+    def cookie_storage
+      c.send(::EuGdpr::Configuration.cookie_storage)
     end
   end
 end

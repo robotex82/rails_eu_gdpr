@@ -32,7 +32,17 @@ Rails.application.config.to_prepare do
       ::EuGdpr::Cookie.new(identifier: :social_media, adjustable: true,  default: false, cookie_store: cookie_store)
     ]}
 
+    # Sets the prefix to use for the consent cookies
+    #
+    # default: config.cookie_prefix = "eu_gdpr-"
+    #
     config.cookie_prefix = "eu_gdpr-"
+
+    # Sets the cookie storage method. Can be either :session or :cookies
+    #
+    # default: config.cookie_storage = :cookies
+    #
+    config.cookie_storage = :cookies
 
     # config.personal_data.register('User', log_removals: true, forget_with: :anonymization) do |u|
     #   u.attribute(:email, anonymize_with: :scrambler)

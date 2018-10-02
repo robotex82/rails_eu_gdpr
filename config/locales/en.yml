@@ -5,6 +5,11 @@ en:
   # route_translator
   routes:
     privacy_policy: privacy-policy
+  activemodel:
+    models:
+      eu_gdpr/cookie_preferences:
+        one: Cookie preferences
+        other: Cookie preferences
   eu_gdpr:
     cookie_preferences:
       update:
