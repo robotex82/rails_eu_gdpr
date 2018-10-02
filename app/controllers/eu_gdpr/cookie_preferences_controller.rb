@@ -43,7 +43,7 @@ module EuGdpr
     end
 
     def initialize_resource
-      @resource = ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(cookies))
+      @resource = ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(send(::EuGdpr::Configuration.cookie_storage)))
     end
   end
 end

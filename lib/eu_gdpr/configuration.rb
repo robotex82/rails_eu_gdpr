@@ -11,6 +11,7 @@ module EuGdpr
     mattr_accessor(:enable_cookie_consent_banner) { true }
     mattr_accessor(:cookies) { ->(cookie_store = ::EuGdpr::CookieStore.new({})) { [] } }
     mattr_accessor(:cookie_prefix) { "eu_gdpr-" }
+    mattr_accessor(:cookie_storage) { :cookie }
 
     def personal_data
       @personal_data ||= ::EuGdpr::PersonalDataRegistry.instance

@@ -21,7 +21,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 3.2.0"
   s.add_dependency 'awesome_print'
-  s.add_dependency 'cookies_eu'
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "pry-rails"
+  s.add_development_dependency 'test-unit', '~> 3.0'
+  s.add_development_dependency 'selenium-webdriver'
 end

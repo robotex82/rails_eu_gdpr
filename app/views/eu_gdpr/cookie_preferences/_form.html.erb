@@ -2,7 +2,7 @@
   <div class="<%= request.xhr? ? 'collapse' : nil %>" id="<%= request.xhr? ? 'cookie_preferences_in_modal' : nil %>">
     <div class="row display-flex">
       <% resource.cookies.each do |cookie| %>
-        <div class="col-lg-6 mt-5">
+        <div class="col-lg-6 mb-4">
           <div class="col-lg-12 border p-4">
             <label class="switch ">
               <% opts = {} %>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="actions mt-5">
+  <div class="actions">
     <div class="row">
       <div class="col-lg-12">
         <%= f.submit class: 'btn btn-primary' %>
