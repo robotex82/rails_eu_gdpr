@@ -1,28 +1,31 @@
-<%= form_for resource, url: eu_gdpr.cookie_preferences_path, method: :put do |f| %>
-  <div class="<%= request.xhr? ? 'collapse' : nil %>" id="<%= request.xhr? ? 'cookie_preferences_in_modal' : nil %>">
-    <div class="row display-flex">
-      <% resource.cookies.each do |cookie| %>
-        <div class="col-lg-6 mb-4">
-          <div class="col-lg-12 border p-4">
-            <label class="switch ">
-              <% opts = {} %>
-              <% opts.merge!(:class => 'primary') %>
-              <% opts.merge!(:disabled => :disabled) if cookie.readonly? %>
-              <%= f.check_box cookie.identifier, opts %>
-              <span class="slider round"></span>
-            </label>
-            <%= render :partial => "eu_gdpr/cookies/multiple/#{cookie.identifier}" %>
+<div id="eu_gdpr_cookie_preferences">
+  <%= form_for resource, url: eu_gdpr.cookie_preferences_path, method: :put do |f| %>
+    <div class="<%= request.xhr? ? 'collapse' : nil %>" id="<%= request.xhr? ? 'cookie_preferences_in_modal' : nil %>">
+      <div class="row display-flex">
+        <% resource.cookies.each do |cookie| %>
+          <div class="col-lg-6 mb-4">
+            <div class="col-lg-12 border p-4">
+              <div class="checkbox">
+                <% opts = {} %>
+                <% opts.merge!(:class => 'eu_gdpr_cookie_checkbox', :id => "eu_gdpr_cookie_checkbox_#{cookie.identifier}") %>
+                <% opts.merge!(:disabled => :disabled) if cookie.readonly? %>
+                <%= f.check_box cookie.identifier, opts %>
+                <label for="<%= "eu_gdpr_cookie_checkbox_#{cookie.identifier}" %>" class="eu_gdpr_cookie_checkbox_container">
+                </label>
+              </div>
+              <%= render :partial => "eu_gdpr/cookies/multiple/#{cookie.identifier}" %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <div class="row">
-      <div class="col-lg-12">
-        <%= f.submit class: 'btn btn-primary', id: 'eu-gdpr-cookies-accept' %>
+        <% end %>
       </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="actions">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= f.submit class: 'btn btn-primary', id: 'eu-gdpr-cookies-accept' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
