@@ -7,11 +7,6 @@ module EuGdpr
     end
 
     def edit
-      if request.xhr?
-        render :edit, layout: false
-      else
-        render :edit
-      end
     end
 
     def update

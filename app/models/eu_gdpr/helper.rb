@@ -24,10 +24,17 @@ module EuGdpr
       ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(cookie_storage))
     end
 
-    def render_cookie_preferences
+    def render_cookie_preferences(options = {})
+      options.reverse_merge!(collapsible_preferences: true, show_hint: true)
+      collapsible_preferences = options.delete(:collapsible_preferences)
+      show_hint = options.delete(:show_hint)
+
       resource = ::EuGdpr::CookiePreferences.new(cookie_store: ::EuGdpr::CookieStore.new(cookie_storage))
-      c.render :partial => 'eu_gdpr/cookie_preferences/hint'
-      c.render :partial => 'eu_gdpr/cookie_preferences/form', locals: { resource: resource }
+
+      c.capture do
+        c.concat c.render :partial => 'eu_gdpr/cookie_preferences/hint', locals: { collapsible_preferences: collapsible_preferences } if show_hint
+        c.concat c.render :partial => 'eu_gdpr/cookie_preferences/form', locals: { resource: resource, collapsible_preferences: collapsible_preferences }
+      end.html_safe
     end
 
     private

@@ -1,6 +1,6 @@
 <div id="eu_gdpr_cookie_preferences">
   <%= form_for resource, url: eu_gdpr.cookie_preferences_path, method: :put do |f| %>
-    <div class="<%= request.xhr? ? 'collapse' : nil %>" id="<%= request.xhr? ? 'cookie_preferences_in_modal' : nil %>">
+    <div class="<%= collapsible_preferences ? 'collapse' : nil %>" id="<%= collapsible_preferences ? 'collapsible_cookie_preferences' : nil %>">
       <div class="row display-flex">
         <% resource.cookies.each do |cookie| %>
           <div class="col-lg-6 mb-4">
