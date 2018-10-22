@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_eu_gdpr (1.0.0)
+    rails_eu_gdpr (1.0.1)
       awesome_print
       rails (>= 3.2.0)
 

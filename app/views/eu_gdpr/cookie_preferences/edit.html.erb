@@ -1,7 +1,6 @@
 <div class="container-fluid">
-  <% unless request.xhr? %>
-    <h1><%= EuGdpr::CookiePreferences.model_name.human %></h1>
-  <% end %>
+  <h1><%= EuGdpr::CookiePreferences.model_name.human %></h1>
+
   <%= render 'hint' %>
   <%= render partial: 'form', locals: { resource: @resource } %>
 </div>
