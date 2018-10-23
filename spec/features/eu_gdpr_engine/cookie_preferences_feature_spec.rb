@@ -24,12 +24,12 @@ RSpec.describe '/de/cookie_preferences/edit', type: :feature, js: true do
       visit(edit_path)
     end
     
-    it { expect(page).to have_field('cookie_preferences_basic', disabled: true) }
-    it { expect(page.find("input#cookie_preferences_basic")).to be_checked }
-    it { expect(page.find("input#cookie_preferences_basic")).to be_checked }
-    it { expect(page.find("input#cookie_preferences_analytics")).to be_checked }
-    it { expect(page.find("input#cookie_preferences_marketing")).to be_checked }
-    it { expect(page.find("input#cookie_preferences_social_media")).not_to be_checked }
+    it { expect(page).to have_field('eu_gdpr_cookie_checkbox_basic', disabled: true) }
+    it { expect(page.find("input#eu_gdpr_cookie_checkbox_basic")).to be_checked }
+    it { expect(page.find("input#eu_gdpr_cookie_checkbox_basic")).to be_checked }
+    it { expect(page.find("input#eu_gdpr_cookie_checkbox_analytics")).to be_checked }
+    it { expect(page.find("input#eu_gdpr_cookie_checkbox_marketing")).to be_checked }
+    it { expect(page.find("input#eu_gdpr_cookie_checkbox_social_media")).not_to be_checked }
   end
 
   describe 'enabling a cookie' do
@@ -46,18 +46,18 @@ RSpec.describe '/de/cookie_preferences/edit', type: :feature, js: true do
     
     it do
       # First make sure we have
-      expect(page).to have_field('cookie_preferences_basic')
-      expect(page.find("input#cookie_preferences_basic")).not_to be_checked
+      expect(page).to have_field('eu_gdpr_cookie_checkbox_basic')
+      expect(page.find("input#eu_gdpr_cookie_checkbox_basic")).not_to be_checked
 
       # Check and submit
-      page.find("input#cookie_preferences_basic").set(true)
+      page.find("input#eu_gdpr_cookie_checkbox_basic").set(true)
       within('#new_cookie_preferences') { find("input[type='submit']").click }
 
       # Check result
       expect(current_path).to eq(edit_path)
       expect(page.body).to include(sucess_message)
 
-      expect(page.find("input#cookie_preferences_basic")).to be_checked
+      expect(page.find("input#eu_gdpr_cookie_checkbox_basic")).to be_checked
     end
   end
 end
