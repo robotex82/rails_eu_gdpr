@@ -15,6 +15,8 @@
 
 <% if eu_gdpr_helper(self).cookie_preferences_pending? %>
   <script>
-    $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
+    $(window).on('load',function(){
+      $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
+    });
   </script>
 <% end %>

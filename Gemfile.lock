@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_eu_gdpr (1.0.1)
+    rails_eu_gdpr (1.0.2)
       awesome_print
       rails (>= 3.2.0)
 
@@ -157,4 +157,4 @@ DEPENDENCIES
   test-unit (~> 3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.16.6
