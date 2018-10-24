@@ -1,3 +1,4 @@
+
 module EuGdpr
   class Cookie
     include ActiveModel::Model
@@ -24,8 +25,8 @@ module EuGdpr
       all(cookie_store).first
     end
 
-    def self.accepted
-      all.select { |resource| resource.accepted? }
+    def self.accepted(cookie_store = nil)
+      all(cookie_store).select { |resource| resource.accepted? }
     end
 
     def value

@@ -36,6 +36,19 @@ You can configure different levels of cookies in the initializer. The defaults a
       ::EuGdpr::Cookie.new(identifier: :social_media, adjustable: true,  default: false, cookie_store: cookie_store)
     ]}
 
+## Adding partials depeding on accepted cookies
+
+Example:
+
+    !!! 5
+    %html{lang: 'de'}
+      %head
+        - eu_gdpr_helper(self).cookie_preferences.accepted_cookies.each do |c|
+          = render "shared/partials/cookies/#{c.identifier}/head"
+      %body
+        - eu_gdpr_helper(self).cookie_preferences.accepted_cookies.each do |c|
+          = render "shared/partials/cookies/#{c.identifier}/body"
+
 ## Registering personal data
 
 ```ruby
