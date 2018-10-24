@@ -43,7 +43,17 @@ module EuGdpr
     end
 
     def accepted?
-      !!value
+      # First check if the user has made a decision on this cookie.
+      if pending?
+        # The user has not decided on this cookie.
+        #
+        # If the cookie can't be changed by the user take the default value
+        # otherwise set it to false.
+        return readonly? ? default : false
+      else
+        # The has accepted/rejected the cookie. Use the actual value.
+        !!value
+      end
     end
 
     def readonly?
@@ -57,7 +67,7 @@ module EuGdpr
     def pending?
       value_from_cookie_store.nil?
     end
-    
+
     private
 
     def initialize_value
