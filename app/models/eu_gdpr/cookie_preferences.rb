@@ -35,5 +35,9 @@ module EuGdpr
     def accepted?(identifier)
       send(identifier)
     end
+
+    def accepted_cookies
+      cookies.select { |c| c.accepted? }
+    end
   end
 end
