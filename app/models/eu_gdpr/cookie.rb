@@ -61,7 +61,7 @@ module EuGdpr
     end
 
     def save
-      cookie_store.set_value(identifier, value)
+      cookie_store.set_value(identifier, value, default_expire)
     end
 
     def pending?
@@ -69,6 +69,10 @@ module EuGdpr
     end
 
     private
+
+    def default_expire
+      1.year.from_now
+    end
 
     def initialize_value
       @value = pending? ? default : value_from_cookie_store
