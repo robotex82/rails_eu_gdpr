@@ -18,8 +18,12 @@ module EuGdpr
       @store[self.class.add_prefix_to_identifier(identifier)]
     end
 
-    def set_value(identifier, value)
-      @store[self.class.add_prefix_to_identifier(identifier)] = value
+    def set_value(identifier, value, expires = nil)
+      if @store.is_a?(ActionDispatch::Cookies::CookieJar)
+        @store[self.class.add_prefix_to_identifier(identifier)] = { :value => value, :expires => expires }
+      else
+        @store[self.class.add_prefix_to_identifier(identifier)] = value
+      end
     end
 
     def cookies
