@@ -5,3 +5,8 @@ en:
   # route_translator
   routes:
     privacy_policy: privacy-policy
+  eu_gdpr:
+    cookies:
+      consent_banner:
+        submit_button_text: I consent
+        title: Cookie Information

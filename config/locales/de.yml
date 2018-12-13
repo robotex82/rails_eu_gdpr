@@ -5,3 +5,8 @@ de:
   # route_translator
   routes:
     privacy_policy: datenschutzerklaerung
+  eu_gdpr:
+    cookies:
+      consent_banner:
+        submit_button_text: "Ich stimme zu"
+        title: "Information über Cookies auf dieser Website."
