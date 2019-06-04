@@ -1,9 +1,20 @@
+GIT
+  remote: https://github.com/rails-add-ons/rao
+  revision: d50d1d71ea001c616369e99a4900b469aa36dbb5
+  branch: feature/rao-view_helper-rails-3-2
+  specs:
+    rao (0.0.26.pre)
+    rao-view_helper (0.0.26.pre)
+      rails (>= 3.2.0)
+      rao
+
 PATH
   remote: .
   specs:
-    rails_eu_gdpr (1.0.5)
+    rails_eu_gdpr (1.0.6)
       awesome_print
       rails (>= 3.2.0)
+      rao-view_helper
 
 GEM
   remote: https://rubygems.org/
@@ -178,7 +189,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.54)
+    tzinfo (0.3.55)
     xpath (3.1.0)
       nokogiri (~> 1.8)
 
@@ -192,12 +203,13 @@ DEPENDENCIES
   i18n_routing
   jquery-rails
   pry-rails
-  rails (>= 3.2)
+  rails (~> 3.2)
   rails_eu_gdpr!
+  rao-view_helper!
   rspec-rails
   selenium-webdriver
   sqlite3
   test-unit (~> 3.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.2

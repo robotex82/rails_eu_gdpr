@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
 
   layout 'application'
 
-  include Controller::EuGdpr::CookieConcern
+  # include Controller::EuGdpr::CookieConcern
+  view_helper EuGdpr::ApplicationViewHelper, as: :eu_gdpr_helper
 end

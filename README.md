@@ -1,6 +1,26 @@
 # EuGdpr
 Short description and motivation.
 
+## Installation
+
+Add it to your gemfile:
+
+```ruby
+gem 'rails_eu_gdpr'
+```
+
+Install your bundle:
+
+```bash
+$ bundle install
+```
+
+Install the initializer:
+
+```bash
+$ rails g eu_gdpr:install
+```
+
 ## Usage
 
 ## Displaying the eu cookie banner
@@ -14,10 +34,10 @@ Short description and motivation.
      */
 
     # app/controllers/application_controller.rb
-    helper EuGdpr::ApplicationHelper
+    view_helper EuGdpr::ApplicationViewHelper, as: eu_gdpr_helper
 
     # app/views/layouts/application.html.erb
-    <%= eu_gdpr_helper(self).render_cookie_consent_banner(link: eu_gdpr.privacy_policy_path) %>
+    <%= eu_gdpr_helper(self).render_cookie_consent_banner %>
 
 ## Displaying the eu cookie banner anywhere
 
