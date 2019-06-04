@@ -9,8 +9,9 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-require "eu_gdpr"
-require 'i18n_routing'
+require "jquery-rails" if ENV.fetch('RAILS_VERSION') { nil } == "3.2"
+require "rails_eu_gdpr"
+require 'i18n_routing' if ENV.fetch('RAILS_VERSION') { nil } == "3.2"
 require 'pry-rails'
 
 module Dummy

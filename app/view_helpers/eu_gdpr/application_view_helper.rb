@@ -1,13 +1,5 @@
 module EuGdpr
-  class Helper
-    def initialize(context)
-      @context = context
-    end
-
-    def c
-      @context
-    end
-
+  class ApplicationViewHelper < Rao::ViewHelper::Base
     def render_cookie_consent_banner
       return unless ::EuGdpr::Configuration.enable_cookie_consent_banner
 

@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 3.2.0"
   s.add_dependency 'awesome_print'
+  s.add_dependency 'rao-view_helper'
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
