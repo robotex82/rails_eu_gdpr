@@ -3,7 +3,7 @@ module EuGdpr
     def render_cookie_consent_banner
       return unless ::EuGdpr::Configuration.enable_cookie_consent_banner
 
-      unless c.url_for() == c.eu_gdpr.privacy_policy_path(options_for_url_helper) || c.url_for() == c.eu_gdpr.edit_cookie_preferences_path(options_for_url_helper)
+      unless c.request.path == c.eu_gdpr.privacy_policy_path(options_for_url_helper) || c.request.path == c.eu_gdpr.edit_cookie_preferences_path(options_for_url_helper)
         c.render('eu_gdpr/cookies/consent_banner') 
       end
     end
