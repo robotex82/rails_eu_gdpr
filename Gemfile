@@ -18,6 +18,5 @@ if ENV.fetch('RAILS_VERSION') { nil } == "3.2"
   gem 'capybara', '< 3.0'
   gem 'i18n_routing'
   gem 'jquery-rails'
+  gem 'sqlite3', '~> 1.3.5'
 end
-
-gem 'rao-view_helper', git: 'https://github.com/rails-add-ons/rao', branch: 'feature/rao-view_helper-rails-3-2'
