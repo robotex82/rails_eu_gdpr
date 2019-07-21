@@ -34,7 +34,7 @@ $ rails g eu_gdpr:install
      */
 
     # app/controllers/application_controller.rb
-    view_helper EuGdpr::ApplicationViewHelper, as: eu_gdpr_helper
+    view_helper EuGdpr::ApplicationViewHelper, as: :eu_gdpr_helper
 
     # app/views/layouts/application.html.erb
     <%= eu_gdpr_helper(self).render_cookie_consent_banner %>
