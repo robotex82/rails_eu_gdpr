@@ -21,6 +21,8 @@ end
 
 require 'bundler/gem_tasks'
 
+require 'appraisal'
+
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
