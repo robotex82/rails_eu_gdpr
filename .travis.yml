@@ -16,4 +16,4 @@ gemfile:
 #   - bundle exec appraisal install
 #   - bundle exec appraisal $RAILS_VERSION gem install bundler:1.17.3
 
-script: appraisal rspec -f d
+# script: appraisal rspec -f d
