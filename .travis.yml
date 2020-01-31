@@ -10,5 +10,6 @@ env:
 before_install:
   - gem update --system
   - gem install bundler
+  - bundle exec appraisal install
 
 script: bundle exec appraisal $RAILS_VERSION rspec -f d
