@@ -1,0 +1,14 @@
+language: ruby
+
+rvm:
+  - 2.5.7
+
+env:
+  - RAILS_VERSION=rails-3-2
+  - RAILS_VERSION=rails-5-2
+
+before_install:
+  - gem update --system
+  - gem install bundler
+
+script: bundle exec appraisal $RAILS_VERSION rspec -f d
