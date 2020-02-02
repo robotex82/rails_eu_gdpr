@@ -10,6 +10,7 @@ gemfile:
 
 before_install:
   - bundle install
+  - echo "$(pwd)"
   - bundle exec appraisal install
 
 # before_install:
