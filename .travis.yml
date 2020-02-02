@@ -9,7 +9,7 @@ gemfile:
   - gemfiles/rails_6_0.gemfile
 
 before_install:
-  - appraisal install
+  - bundle exec appraisal install
   
 # before_install:
 #   - gem update --system
