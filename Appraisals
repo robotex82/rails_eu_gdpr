@@ -1,8 +1,8 @@
-appraise "rails-3-2" do
-  gem "rails", "~> 3.2"
-  gem "i18n_routing"
-  gem "sqlite3", "~> 1.3.6"
-end
+# appraise "rails-3-2" do
+#   gem "rails", "~> 3.2"
+#   gem "i18n_routing"
+#   gem "sqlite3", "~> 1.3.6"
+# end
 
 appraise "rails-5-2" do
   gem "rails", "~> 5.2"
