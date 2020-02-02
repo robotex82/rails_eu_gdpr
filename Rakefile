@@ -26,6 +26,6 @@ require 'appraisal'
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
-  task default: [ :clean, 'appraisal:install', :spec ]
+  task default: [ :clean, :spec ]
 rescue LoadError
 end
