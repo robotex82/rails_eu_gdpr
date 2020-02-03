@@ -9,18 +9,8 @@ gemfile:
   - gemfiles/rails_6_0.gemfile
 
 before_install:
-  - yes | gem update --system --force
-  - gem install bundler
+  # - yes | gem update --system --force
+  # - gem install bundler
   - bundle install
   - echo "$(pwd)"
   - bundle exec appraisal install
-
-# before_install:
-#   - gem update --system
-#   - gem install bundler:1.17.3
-#   - bundle --version
-#   - bundle
-#   - bundle exec appraisal install
-#   - bundle exec appraisal $RAILS_VERSION gem install bundler:1.17.3
-
-# script: appraisal rspec -f d
