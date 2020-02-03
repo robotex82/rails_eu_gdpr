@@ -1,12 +1,30 @@
 en:
   # i18n_routing
   resource:
+    cookie_preferences: cookie-preferences
     privacy_policy: privacy-policy
   # route_translator
   routes:
+    eu_gdpr_engine: ""
     privacy_policy: privacy-policy
+    controllers:
+      eu_gdpr:
+        cookie_preferences:
+          cookie_preferences: cookie-preferences
+  activemodel:
+    models:
+      eu_gdpr/cookie_preferences:
+        one: Cookie preferences
+        other: Cookie preferences
   eu_gdpr:
+    cookie_preferences:
+      update:
+        success: 'Settings successfully saved.'
     cookies:
       consent_banner:
-        submit_button_text: I consent
-        title: Cookie Information
+        title: "We use cookies"
+  helpers:
+    submit:
+      cookie_preferences:
+        create: "I consent"
+        update: "I consent"

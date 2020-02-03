@@ -4,11 +4,18 @@ module EuGdpr
       yield self
     end
 
-    mattr_accessor(:base_controller) { Proc.new {{}} }
-    mattr_accessor(:personal_data_root_classes) { Proc.new {{}} }
-    mattr_accessor(:filter_personal_data_attributes) { [] }
+    mattr_accessor(:base_controller) { "::ApplicationController" }
+    mattr_accessor(:personal_data_root_classes) { [] }
+    mattr_accessor(:filter_personal_data_attributes) { [:email, :firstname, :lastname, :birthdate] }
     mattr_accessor(:enforce_ssl) { true }
     mattr_accessor(:enable_cookie_consent_banner) { true }
+    mattr_accessor(:cookies) do
+      ->(cookie_store = ::EuGdpr::CookieStore.new({})) {[
+        ::EuGdpr::Cookie.new(identifier: :basic, adjustable: false, default: true,  cookie_store: cookie_store)
+      ]} 
+    end
+    mattr_accessor(:cookie_prefix) { "#{Rails.application.class.name.deconstantize.underscore}-eu_gdpr-" }
+    mattr_accessor(:cookie_storage) { :cookies }
 
     def personal_data
       @personal_data ||= ::EuGdpr::PersonalDataRegistry.instance

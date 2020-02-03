@@ -1,0 +1,13 @@
+language: ruby
+
+rvm:
+  - 2.5.7
+
+gemfile:
+  - gemfiles/rails_3_2.gemfile
+  - gemfiles/rails_5_2.gemfile
+  - gemfiles/rails_6_0.gemfile
+
+before_install:
+  - bundle install
+  - bundle exec appraisal install

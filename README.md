@@ -1,6 +1,26 @@
 # EuGdpr
 Short description and motivation.
 
+## Installation
+
+Add it to your gemfile:
+
+```ruby
+gem 'rails_eu_gdpr'
+```
+
+Install your bundle:
+
+```bash
+$ bundle install
+```
+
+Install the initializer:
+
+```bash
+$ rails g eu_gdpr:install
+```
+
 ## Usage
 
 ## Displaying the eu cookie banner
@@ -8,11 +28,46 @@ Short description and motivation.
     # app/assets/javascripts/application.js
     //= require eu_gdpr
 
+    # app/assets/javascripts/application.js
+    /*
+     *= require eu_gdpr
+     */
+
     # app/controllers/application_controller.rb
-    helper EuGdpr::ApplicationHelper
+    view_helper EuGdpr::ApplicationViewHelper, as: :eu_gdpr_helper
 
     # app/views/layouts/application.html.erb
-    <%= render_cookie_consent_banner(link: eu_gdpr.privacy_policy_path) %>
+    <%= eu_gdpr_helper(self).render_cookie_consent_banner %>
+
+## Displaying the eu cookie banner anywhere
+
+    # i.e. app/views/some_view.html.haml
+    <%= eu_gdpr_helper(self).render_cookie_preferences %>
+
+## Configuring the eu cookie banner
+
+You can configure different levels of cookies in the initializer. The defaults are as follows:
+
+    # config/initializers/eu_gdpr.rb
+    config.cookies = ->(cookie_store = ::EuGdpr::CookieStore.new({})) {[
+      ::EuGdpr::Cookie.new(identifier: :basic,        adjustable: false, default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :analytics,    adjustable: true,  default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :marketing,    adjustable: true,  default: true,  cookie_store: cookie_store),
+      ::EuGdpr::Cookie.new(identifier: :social_media, adjustable: true,  default: false, cookie_store: cookie_store)
+    ]}
+
+## Adding partials depeding on accepted cookies
+
+Example:
+
+    !!! 5
+    %html{lang: 'de'}
+      %head
+        - eu_gdpr_helper(self).cookie_preferences.accepted_cookies.each do |c|
+          = render "shared/partials/cookies/#{c.identifier}/head"
+      %body
+        - eu_gdpr_helper(self).cookie_preferences.accepted_cookies.each do |c|
+          = render "shared/partials/cookies/#{c.identifier}/body"
 
 ## Registering personal data
 
@@ -61,7 +116,7 @@ Short description and motivation.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'eu_gdpr'
+gem 'rails_eu_gdpr'
 ```
 
 And then execute:
@@ -71,13 +126,13 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install eu_gdpr
+$ gem install rails_eu_gdpr
 ```
 
 Add the initializer:
 
 ```bash
-$ rails g eu_gdpr:install
+$ rails g rails_eu_gdpr:install
 ```
 
 ## Upgrading to 0.0.3
@@ -86,6 +141,24 @@ Remove config.privacy_policy_defaults from config/initializers/eu_gdpr.rb as thi
 
 ## Contributing
 Contribution directions go here.
+
+## Development
+
+## Bundling for all rails version with appraisals
+
+    $> bundle exec appraisal install
+
+### Running specs
+
+    $> bundle exec appraisal rails-5-2 rspec -f d
+
+### Running the dummy app
+
+    spec/dummy-5_2 $> BUNDLE_GEMFILE=../../gemfiles/rails_5_2.gemfile rails console
+
+### Running stuff in the dummy app
+
+    spec/dummy-6_0 $> BUNDLE_GEMFILE=../../gemfiles/rails_6_0.gemfile rails webpacker:install
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

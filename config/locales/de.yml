@@ -1,12 +1,30 @@
 de:
   # i18n_routing
   resource:
+    cookie_preferences: cookie-einstellungen
     privacy_policy: datenschutzerklaerung
   # route_translator
   routes:
+    eu_gdpr_engine: ""
     privacy_policy: datenschutzerklaerung
+    controllers:
+      eu_gdpr:
+        cookie_preferences:
+          cookie_preferences: cookie-einstellungen
+  activemodel:
+    models:
+      eu_gdpr/cookie_preferences:
+        one: Cookie-Einstellungen
+        other: Cookie-Einstellungen
   eu_gdpr:
+    cookie_preferences:
+      update:
+        success: 'Ihre Einstellungen wurden gespeichert.'
     cookies:
       consent_banner:
-        submit_button_text: "Ich stimme zu"
-        title: "Information über Cookies auf dieser Website."
+        title: "Wir verwenden Cookies"
+  helpers:
+    submit:
+      cookie_preferences:
+        create: "Ich stimme zu"
+        update: "Ich stimme zu"

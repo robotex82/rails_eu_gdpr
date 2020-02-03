@@ -1,21 +1,22 @@
 <div id="cookies-eu-modal" class="modal fade cookies-eu js-cookies-eu" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+  <div class="modal-lg modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"><%= t('.title') %></h4>
       </div>
       <div class="modal-body">
-        <%= render :partial => 'eu_gdpr/cookies/consent_banner/modal_body', :locals => { :link => link, :target => try(:target) } %>
-      </div>
-      <div class="modal-footer">
-        <button id="eu-gdpr-cookie-consent-accept" type="button" class="btn btn-primary cookies-eu-ok js-cookies-eu-ok" data-dismiss="modal"><%= t('.submit_button_text') %></button>
+        <div class="container-fluid">
+          <%= eu_gdpr_helper(self).render_cookie_preferences(collapsible_preferences: true) %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<% if cookies && cookies['cookie_eu_consented'] != 'true' %>
+<% if eu_gdpr_helper(self).cookie_preferences_pending? %>
   <script>
-    $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
+    $(window).on('load',function(){
+      $('#cookies-eu-modal').modal({ backdrop: 'static', keyboard: false })
+    });
   </script>
 <% end %>

@@ -1,5 +1,5 @@
 require "awesome_print"
-require "cookies_eu"
+require "rao-view_helper"
 require "eu_gdpr/configuration"
 require "eu_gdpr/engine"
 require "active_model/model" if Rails::VERSION::MAJOR < 4
