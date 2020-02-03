@@ -142,6 +142,24 @@ Remove config.privacy_policy_defaults from config/initializers/eu_gdpr.rb as thi
 ## Contributing
 Contribution directions go here.
 
+## Development
+
+## Bundling for all rails version with appraisals
+
+    $> bundle exec appraisal install
+
+### Running specs
+
+    $> bundle exec appraisal rails-5-2 rspec -f d
+
+### Running the dummy app
+
+    spec/dummy-5_2 $> BUNDLE_GEMFILE=../../gemfiles/rails_5_2.gemfile rails console
+
+### Running stuff in the dummy app
+
+    spec/dummy-6_0 $> BUNDLE_GEMFILE=../../gemfiles/rails_6_0.gemfile rails webpacker:install
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 

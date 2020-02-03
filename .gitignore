@@ -15,5 +15,12 @@ spec/dummy-5_2/node_modules/
 spec/dummy-5_2/yarn-error.log
 spec/dummy-5_2/storage/
 spec/dummy-5_2/tmp/
+spec/dummy-6_0/db/*.sqlite3
+spec/dummy-6_0/db/*.sqlite3-journal
+spec/dummy-6_0/log/*.log
+spec/dummy-6_0/node_modules/
+spec/dummy-6_0/yarn-error.log
+spec/dummy-6_0/storage/
+spec/dummy-6_0/tmp/
 *.gem
 *~
