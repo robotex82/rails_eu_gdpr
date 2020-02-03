@@ -2,9 +2,9 @@ Rails.application.config.to_prepare do
   EuGdpr.configure do |config|
     # Set the base controller
     #
-    # Default: config.base_controller = 'ApplicationController'
+    # Default: config.base_controller = '::ApplicationController'
     #
-    config.base_controller = 'ApplicationController'
+    config.base_controller = '::ApplicationController'
 
     # Add these attributes to the rails logging filter
     #
@@ -34,9 +34,9 @@ Rails.application.config.to_prepare do
 
     # Sets the prefix to use for the consent cookies
     #
-    # default: config.cookie_prefix = "eu_gdpr-"
+    # default: config.cookie_prefix = "#{Rails.application.class.name.deconstantize.underscore}-eu_gdpr-"
     #
-    config.cookie_prefix = "eu_gdpr-"
+    config.cookie_prefix = "#{Rails.application.class.name.deconstantize.underscore}-eu_gdpr-"
 
     # Sets the cookie storage method. Can be either :session or :cookies
     #

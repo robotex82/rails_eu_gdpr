@@ -36,7 +36,7 @@ RSpec.describe EuGdpr::Cookie, type: :model do
   end
 
   describe 'value from cookie store is used over default' do
-    let(:cookie_store) { ::EuGdpr::CookieStore.new({ 'eu_gdpr-basic' => false })}
+    let(:cookie_store) { ::EuGdpr::CookieStore.new({ "#{EuGdpr::Configuration.cookie_prefix}basic" => false })}
     describe 'when false' do
       before(:each) do
         ::EuGdpr::Configuration.cookies = ->(cookie_store = nil) {
@@ -48,7 +48,7 @@ RSpec.describe EuGdpr::Cookie, type: :model do
     end
 
     describe 'when true' do
-    let(:cookie_store) { ::EuGdpr::CookieStore.new({ 'eu_gdpr-basic' => true })}
+    let(:cookie_store) { ::EuGdpr::CookieStore.new({ "#{EuGdpr::Configuration.cookie_prefix}basic" => true })}
       before(:each) do
         ::EuGdpr::Configuration.cookies = ->(cookie_store = nil) {
           [::EuGdpr::Cookie.new(identifier: :basic, adjustable: true, default: false,  cookie_store: cookie_store)]

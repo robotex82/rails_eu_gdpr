@@ -3,6 +3,7 @@ PATH
   specs:
     rails_eu_gdpr (1.0.9)
       awesome_print
+      rails (>= 3.2.0)
       rao-view_helper (>= 0.0.27.pre)
 
 GEM

@@ -1,10 +1,16 @@
 en:
   # i18n_routing
   resource:
+    cookie_preferences: cookie-preferences
     privacy_policy: privacy-policy
   # route_translator
   routes:
+    eu_gdpr_engine: ""
     privacy_policy: privacy-policy
+    controllers:
+      eu_gdpr:
+        cookie_preferences:
+          cookie_preferences: cookie-preferences
   activemodel:
     models:
       eu_gdpr/cookie_preferences:

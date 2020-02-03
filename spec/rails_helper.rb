@@ -1,7 +1,12 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../dummy/config/environment', __FILE__)
+
+# Load dummy app for the suiting rails version
+if ENV.fetch('BUNDLE_GEMFILE') =~ /.*([0-9]{1}_[0-9]{1}).*/
+  require File.expand_path("../dummy-#{$~[1]}/config/environment", __FILE__)
+end
+
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'

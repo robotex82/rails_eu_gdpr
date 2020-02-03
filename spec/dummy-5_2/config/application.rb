@@ -15,6 +15,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 require "eu_gdpr"
+require "route_translator"
 
 module Dummy
   class Application < Rails::Application
@@ -28,3 +29,4 @@ module Dummy
   end
 end
 
+  

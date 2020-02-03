@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'awesome_print'
   s.add_dependency 'rao-view_helper', '>= 0.0.27.pre'
 
+  s.add_development_dependency "appraisal"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "guard-rspec"

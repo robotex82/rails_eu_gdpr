@@ -1,10 +1,16 @@
 de:
   # i18n_routing
   resource:
+    cookie_preferences: cookie-einstellungen
     privacy_policy: datenschutzerklaerung
   # route_translator
   routes:
+    eu_gdpr_engine: ""
     privacy_policy: datenschutzerklaerung
+    controllers:
+      eu_gdpr:
+        cookie_preferences:
+          cookie_preferences: cookie-einstellungen
   activemodel:
     models:
       eu_gdpr/cookie_preferences:
